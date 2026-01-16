@@ -1,0 +1,16 @@
+{
+  "extends": "@saas/tsconfig/node.json",
+  "include": [
+    "src/**/*",
+    "prisma.config.ts"
+  ],
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  }
+}
