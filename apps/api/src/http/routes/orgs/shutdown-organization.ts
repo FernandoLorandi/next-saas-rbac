@@ -28,22 +28,30 @@ export async function shutdownOrganization(app: FastifyInstance) {
         },
       },
       async (request, reply) => {
+        //Capturando o slug da organização da url
         const { slug } = await request.params
 
+        // Capturando o id do usário
         const userId = await request.getCurrentUserId()
+
+        // Verificando a organização e a role do slug
         const { membership, organization } =
           await request.getUserMembership(slug)
 
+        // Parse nos objetos recebidos
         const authOrganization = organizationSchema.parse(organization)
 
+        // Verifica o permissionamento
         const { cannot } = getUserPermissions(userId, membership.role)
 
+        // Verifica as roles passando o objeto autenticado
         if (cannot('delete', authOrganization)) {
           throw new UnauthorizedError(
             'You`re not allowed to shutdown this organization.'
           )
         }
 
+        // Deleta o projeto no banco
         await prisma.organization.delete({
           where: { id: organization.id },
         })
