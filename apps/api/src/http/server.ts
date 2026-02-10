@@ -31,6 +31,15 @@ import { getProject } from './routes/projects/get-project'
 import { getProjects } from './routes/projects/get-projects'
 import { updateProject } from './routes/projects/update-project'
 import { getMembers } from './routes/members/get-members'
+import { updateMembers } from './routes/members/update-member'
+import { removeMembers } from './routes/members/remove-member'
+import { createInvite } from './routes/invites/create-invite'
+import { getInvite } from './routes/invites/get-invite'
+import { getInvites } from './routes/invites/get-invites'
+import { acceptInvite } from './routes/invites/accept-invite'
+import { rejectInvite } from './routes/invites/reject-invite'
+import { revokeInvite } from './routes/invites/revoke.-invite'
+import { getPendingInvites } from './routes/invites/get-pending-invites'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>() // Inicializa o server
 
@@ -80,7 +89,6 @@ app.register(createOrganization)
 app.register(getUserMembership)
 app.register(getOrganization)
 app.register(getOrganizations)
-
 app.register(updateOrganization)
 app.register(shutdownOrganization)
 app.register(transferOrganization)
@@ -92,6 +100,16 @@ app.register(getProjects)
 app.register(updateProject)
 
 app.register(getMembers)
+app.register(updateMembers)
+app.register(removeMembers)
+
+app.register(createInvite)
+app.register(getInvite)
+app.register(getInvites)
+app.register(acceptInvite)
+app.register(rejectInvite)
+app.register(revokeInvite)
+app.register(getPendingInvites)
 
 app
   .listen({ port: env.SERVER_PORT })
