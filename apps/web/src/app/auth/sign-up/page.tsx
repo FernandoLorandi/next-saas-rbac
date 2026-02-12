@@ -1,15 +1,25 @@
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import Link from 'next/link'
 import { Separator } from '@/components/ui/separator'
 
 import githubIcon from '@/assets/github-icon.svg'
 import Image from 'next/image'
+import Link from 'next/link'
 
-export default function SignInPage() {
+export default function SignUpPage() {
   return (
     <form action="" className="space-y-4">
+      <div className="space-y-1">
+        <Label htmlFor="name">Name</Label>
+        <Input
+          name="name"
+          type="name"
+          id="name"
+          placeholder="Insert your name"
+        ></Input>
+      </div>
+
       <div className="space-y-1">
         <Label htmlFor="email">E-mail</Label>
         <Input
@@ -17,7 +27,6 @@ export default function SignInPage() {
           type="email"
           id="email"
           placeholder="Insert your email"
-          className=""
         ></Input>
       </div>
 
@@ -28,19 +37,25 @@ export default function SignInPage() {
           type="password"
           id="password"
           placeholder="Insert your password"
-          className=""
         ></Input>
+      </div>
 
-        <Link
-          href="/auth/forgot-password"
-          className="text-foreground text-xs font-medium hover:underline"
-        >
-          Forgot your password
-        </Link>
+      <div className="space-y-1">
+        <Label htmlFor="password_confirmation">Confirm your password</Label>
+        <Input
+          name="password_confirmation"
+          type="password"
+          id="password_confirmation"
+          placeholder="Confirm your password"
+        ></Input>
       </div>
 
       <Button className="w-full" type="submit">
-        Sign in with e-mail
+        Create account
+      </Button>
+
+      <Button className="w-full" size="xs" variant={'link'} asChild>
+        <Link href="/auth/sign-in">Already register? Sign in</Link>
       </Button>
 
       <Separator></Separator>
@@ -52,11 +67,7 @@ export default function SignInPage() {
           width={16}
           className="light:invert mr-2"
         ></Image>
-        Sign in with github
-      </Button>
-
-      <Button className="w-full" size="xs" variant={'link'} asChild>
-        <Link href="/auth/sign-up">Create new account</Link>
+        Sign up with github
       </Button>
     </form>
   )
