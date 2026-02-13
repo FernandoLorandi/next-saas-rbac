@@ -1,15 +1,16 @@
+import Link from 'next/link'
+import Image from 'next/image'
+
+import githubIcon from '@/assets/github-icon.svg'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import Link from 'next/link'
 import { Separator } from '@/components/ui/separator'
-
-import githubIcon from '@/assets/github-icon.svg'
-import Image from 'next/image'
+import signInWithEmailAndPassword from './actions'
 
 export default function SignInPage() {
   return (
-    <form action="" className="space-y-4">
+    <form action={signInWithEmailAndPassword} className="space-y-4">
       <div className="space-y-1">
         <Label htmlFor="email">E-mail</Label>
         <Input
