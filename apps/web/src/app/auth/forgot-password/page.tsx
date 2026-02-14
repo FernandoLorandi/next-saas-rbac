@@ -2,10 +2,6 @@ import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import Link from 'next/link'
-import { Separator } from '@/components/ui/separator'
-
-import githubIcon from '@/assets/github-icon.svg'
-import Image from 'next/image'
 
 export default function ForgotPasswordPage() {
   return (
