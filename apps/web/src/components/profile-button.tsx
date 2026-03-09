@@ -6,7 +6,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
-import Link from 'next/link'
 import { auth } from '@/auth/auth'
 
 function getInitials(name: string): string {
@@ -40,10 +39,10 @@ export async function ProfileButton() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem asChild>
-          <Link href="/api/auth/sign-out">
+          <a href="/api/auth/sign-out">
             <LogOut className="mr-2 size-4"></LogOut>
             Sign out
-          </Link>
+          </a>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
